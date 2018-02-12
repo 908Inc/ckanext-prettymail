@@ -23,7 +23,7 @@ def send_mail(context, data_dict):
     """
     mail_from = config.get('smtp.mail_from')
     kwargs = {
-        'from_': data_dict['from'],
+        'from_': data_dict.get('from', mail_from),
         'to': data_dict['to'],
         'subject': data_dict['subject'],
         'message_text': data_dict.get('message_text', None),
